@@ -1,7 +1,7 @@
 #include <raylib.h>
 
-const int screenWidth = 612;
-const int screenHeight = 438;
+const int screenWidth = 1920;
+const int screenHeight = 1080;
 
 int main()
 {
@@ -10,7 +10,7 @@ int main()
     float background_scale;
     
     //Initing window
-    InitWindow(screenWidth, screenHeight, "magazine-managementApp");
+    InitWindow(screenWidth, screenHeight, "werehous-managementApp");
 
     //loading and scalling background_texture
     background_texture = LoadTexture("textures/background.png");

@@ -119,11 +119,15 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/button.o
-GENERATED += $(OBJDIR)/button_tex.o
+GENERATED += $(OBJDIR)/button_text.o
+GENERATED += $(OBJDIR)/button_texture.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/ui.o
 OBJECTS += $(OBJDIR)/button.o
-OBJECTS += $(OBJDIR)/button_tex.o
+OBJECTS += $(OBJDIR)/button_text.o
+OBJECTS += $(OBJDIR)/button_texture.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/ui.o
 
 # Rules
 # #############################################
@@ -190,10 +194,16 @@ endif
 $(OBJDIR)/button.o: src/button.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/button_tex.o: src/button_tex.cpp
+$(OBJDIR)/button_text.o: src/button_text.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/button_texture.o: src/button_texture.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: src/main.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/ui.o: src/ui.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

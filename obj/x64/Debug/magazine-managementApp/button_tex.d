@@ -1,5 +1,6 @@
-obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
- /usr/include/stdc-predef.h build/external/raylib-master/src/raylib.h \
+obj/x64/Debug/magazine-managementApp/button_tex.o: src/button_tex.cpp \
+ /usr/include/stdc-predef.h src/button_tex.hpp \
+ build/external/raylib-master/src/raylib.h \
  /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h src/button.hpp \
  /usr/include/c++/15/vector /usr/include/c++/15/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
@@ -51,9 +52,9 @@ obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
  /usr/include/c++/15/bits/memory_resource.h /usr/include/c++/15/cstddef \
  /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h \
  /usr/include/c++/15/bits/uses_allocator.h \
- /usr/include/c++/15/bits/uses_allocator_args.h /usr/include/c++/15/tuple \
- src/button_tex.hpp
+ /usr/include/c++/15/bits/uses_allocator_args.h /usr/include/c++/15/tuple
 /usr/include/stdc-predef.h:
+src/button_tex.hpp:
 build/external/raylib-master/src/raylib.h:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h:
 src/button.hpp:
@@ -119,4 +120,3 @@ src/button.hpp:
 /usr/include/c++/15/bits/uses_allocator.h:
 /usr/include/c++/15/bits/uses_allocator_args.h:
 /usr/include/c++/15/tuple:
-src/button_tex.hpp:

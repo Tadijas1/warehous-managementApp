@@ -1,8 +1,8 @@
-obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
- /usr/include/stdc-predef.h build/external/raylib-master/src/raylib.h \
- /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h src/ui.hpp \
- src/date_and_time.hpp src/button_text.hpp /usr/include/c++/15/string \
- /usr/include/c++/15/bits/requires_hosted.h \
+obj/x64/Debug/magazine-managementApp/date_and_time.o: \
+ src/date_and_time.cpp /usr/include/stdc-predef.h \
+ build/external/raylib-master/src/raylib.h \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h \
+ /usr/include/c++/15/string /usr/include/c++/15/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -117,17 +117,19 @@ obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
  /usr/include/c++/15/bits/memory_resource.h /usr/include/c++/15/cstddef \
  /usr/include/c++/15/bits/uses_allocator.h \
  /usr/include/c++/15/bits/uses_allocator_args.h /usr/include/c++/15/tuple \
- src/button.hpp /usr/include/c++/15/vector \
- /usr/include/c++/15/bits/stl_uninitialized.h \
+ /usr/include/c++/15/ctime /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ src/date_and_time.hpp src/button_text.hpp src/button.hpp \
+ /usr/include/c++/15/vector /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc src/button_texture.hpp
+ /usr/include/c++/15/bits/vector.tcc
 /usr/include/stdc-predef.h:
 build/external/raylib-master/src/raylib.h:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h:
-src/ui.hpp:
-src/date_and_time.hpp:
-src/button_text.hpp:
 /usr/include/c++/15/string:
 /usr/include/c++/15/bits/requires_hosted.h:
 /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h:
@@ -266,10 +268,17 @@ src/button_text.hpp:
 /usr/include/c++/15/bits/uses_allocator.h:
 /usr/include/c++/15/bits/uses_allocator_args.h:
 /usr/include/c++/15/tuple:
+/usr/include/c++/15/ctime:
+/usr/include/time.h:
+/usr/include/x86_64-linux-gnu/bits/time.h:
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+src/date_and_time.hpp:
+src/button_text.hpp:
 src/button.hpp:
 /usr/include/c++/15/vector:
 /usr/include/c++/15/bits/stl_uninitialized.h:
 /usr/include/c++/15/bits/stl_vector.h:
 /usr/include/c++/15/bits/stl_bvector.h:
 /usr/include/c++/15/bits/vector.tcc:
-src/button_texture.hpp:

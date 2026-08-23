@@ -162,13 +162,12 @@ obj/x64/Debug/magazine-managementApp/ui.o: src/ui.cpp \
  /usr/include/c++/15/bits/basic_ios.tcc \
  /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
  /usr/include/c++/15/bits/istream.tcc src/ui.hpp \
- build/external/raylib-master/src/raylib.h /usr/include/c++/15/ctime \
- src/button.hpp /usr/include/c++/15/vector \
+ build/external/raylib-master/src/raylib.h src/date_and_time.hpp \
+ src/button_text.hpp src/button.hpp /usr/include/c++/15/vector \
  /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc src/button_texture.hpp \
- src/button_text.hpp
+ /usr/include/c++/15/bits/vector.tcc src/button_texture.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/string:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -371,7 +370,8 @@ obj/x64/Debug/magazine-managementApp/ui.o: src/ui.cpp \
 /usr/include/c++/15/bits/istream.tcc:
 src/ui.hpp:
 build/external/raylib-master/src/raylib.h:
-/usr/include/c++/15/ctime:
+src/date_and_time.hpp:
+src/button_text.hpp:
 src/button.hpp:
 /usr/include/c++/15/vector:
 /usr/include/c++/15/bits/stl_uninitialized.h:
@@ -379,4 +379,3 @@ src/button.hpp:
 /usr/include/c++/15/bits/stl_bvector.h:
 /usr/include/c++/15/bits/vector.tcc:
 src/button_texture.hpp:
-src/button_text.hpp:

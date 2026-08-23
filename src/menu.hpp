@@ -4,15 +4,21 @@
 #include <date_and_time.hpp>
 #include <button.hpp>
 #include <button_texture.hpp>
+#include <button_type.hpp>
 
-class Ui
+class Menu
 {
-    Button_texture exit;
     Date_and_time time;
 
-    public:
-    Ui();
+    Button_texture exit;
+    Button_type login;
+    Button_type password;
+    int isTyping;
 
+    public:
+    Menu();
+
+    void Input();
     void Update();
     void Draw();
 };

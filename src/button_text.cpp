@@ -4,15 +4,15 @@ void Button_text::DrawTextInside()
 {
     int textWidth = MeasureText(text.c_str(), textSize);
     
-    DrawText(text.c_str(), hitbox.x + (hitbox.width - textWidth)/2, hitbox.y + (hitbox.height - textSize)/2, textSize, WHITE);
-    text = "";
+    DrawText(text.c_str(), hitbox.x + (hitbox.width - textWidth)/2, hitbox.y + (hitbox.height - textSize)/2, textSize, textColor);
 }
 
-Button_text::Button_text(float width, float height, Color color, bool doCenter, Vector2 offset, int textsize, std::string text)
+Button_text::Button_text(float width, float height, Color color, bool doCenter, Vector2 offset, int textsize, std::string text, Color textColor)
 :Button(width, height, color, doCenter, offset)
 {
     textSize = textsize;
     this -> text = text;
+    this -> textColor = textColor;
 }
 
 void Button_text::Draw()

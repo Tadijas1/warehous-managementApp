@@ -8,9 +8,21 @@ Menu::Menu()
     isTyping = 0;
 }
 
+void Menu::Hover(Button* ptr)
+{
+    if(ptr -> IsHover(GetMousePosition())) { if(!ptr ->IsHovered) {ptr -> ChangeColor(-100);} ptr -> IsHovered = true;}
+    else if(ptr -> IsHovered == true) { ptr -> ChangeColor(100); ptr -> IsHovered = false; }
+}
+
 void Menu::Input()
 {
-    //Mouse
+    //Hover buttons
+    Hover(&exit);
+    Hover(&login);
+    Hover(&password);
+
+
+    //Mouse input
     if(exit.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) CloseWindow();
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
@@ -18,6 +30,7 @@ void Menu::Input()
         else if(password.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 2;
         else isTyping = 0;
     }
+
 
     //Keyboard
     if(IsKeyPressed(KEY_TAB) && isTyping != 0) {isTyping++; if(isTyping == 3) isTyping = 1;}

@@ -10,13 +10,19 @@ Button::Button(float width, float height, Color color, bool doCenter, Vector2 of
     else hitbox = Rectangle{offset.x, offset.y, width, height};
 
     //Other things
-    IsClicked = false;
+    IsHovered= false;
     this -> color = color;
 }
 
 bool Button::IsPressd(Vector2 mousePosicion, bool mousePressed)
 {
     if(CheckCollisionPointRec(mousePosicion, hitbox) && mousePressed) return true;
+    return false;
+}
+
+bool Button::IsHover(Vector2 mousePosicion)
+{
+    if(CheckCollisionPointRec(mousePosicion, hitbox)) return true;
     return false;
 }
 

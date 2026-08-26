@@ -18,6 +18,7 @@ class Menu
     public:
     Menu();
 
+    void Hover(Button* ptr);
     void Input();
     void Update();
     void Draw();

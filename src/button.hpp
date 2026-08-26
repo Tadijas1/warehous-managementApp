@@ -7,12 +7,16 @@ class Button
     protected:
     Rectangle hitbox;
     Color color;
-    bool IsClicked;
     Vector2 GetCenterPosicion();
-
+    
     public:
+    bool IsHovered;
+
     Button(float width, float height, Color color, bool doCenter, Vector2 offset = {0, 0});
     
     bool IsPressd(Vector2 mousePosicion, bool mousePressed);
+    bool IsHover(Vector2 mousePosicion);
+    void ChangeColor(int value) {color.a += value;}
+
     void Draw();
 };

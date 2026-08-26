@@ -1,10 +1,13 @@
 #include <string>
 #include <iostream>
-#include "menu.hpp"
 
-Menu::Menu()
+#include "menu.hpp"
+#include "game.hpp"
+
+Menu::Menu(Game* gameptr)
 :exit("textures/cross.png", 0.03, 25, 25, RED ,false, {1890, 2}), login(600, 75, WHITE, true, {0, -120}, 50, BLACK, "Login:"), password(600, 75, WHITE, true, {0, 120}, 50, BLACK,"Password:"), confirm(300, 50, LIME, true, {0, 300}, 30, BLACK, "CONFIRM")
 {
+    this -> gameptr = gameptr;
     isTyping = 0;
 }
 
@@ -28,9 +31,13 @@ void Menu::Input()
 
     if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER) && isTyping == 2)) {
         //click on "confirm" or enter
+        if(gameptr -> Checking_profile(login.text, password.text) != nullptr) gameptr -> Checking_profile(login.text, password.text) -> print();
+        else std::cout<<"nie udało się zalogować"<<std::endl;
+
+        //czyszczenie pól textowych
         login.text = "";
         password.text = "";
-        confirm.text = "zalogowano";
+        isTyping = 0;
     }
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {

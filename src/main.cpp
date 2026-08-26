@@ -1,5 +1,5 @@
 #include <raylib.h>
-#include <menu.hpp>
+#include <game.hpp>
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
@@ -21,22 +21,23 @@ int main()
     SetTargetFPS(60);
     
     //Creating objects
-    Menu menu = Menu();
+    Game game = Game();
+    game.AddProfile();
 
     while (!WindowShouldClose())
     {
         //Input
-        menu.Input();
+        game.InputAll();
         
         // Update
-        menu.Update();
+        game.UpdateAll();
 
         BeginDrawing();
             ClearBackground(GRAY);
             
             // Draw
             DrawTextureEx(background_texture, (Vector2){0, 30}, 0.0f, background_scale, WHITE);
-            menu.Draw();
+            game.DrawAll();
         EndDrawing();
     }
     

@@ -10,10 +10,13 @@ class Menu
 {
     Date_and_time time;
 
-    Button_texture exit;
     Button_type login;
     Button_type password;
+
+    Button_texture exit;
+    
     Button_text confirm;
+    
     int isTyping;
 
     public:

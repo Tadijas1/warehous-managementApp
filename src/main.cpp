@@ -33,6 +33,7 @@ int main()
 
         BeginDrawing();
             ClearBackground(GRAY);
+            
             // Draw
             DrawTextureEx(background_texture, (Vector2){0, 30}, 0.0f, background_scale, WHITE);
             menu.Draw();

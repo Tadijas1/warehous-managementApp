@@ -6,7 +6,9 @@ class Button
 {
     protected:
     Rectangle hitbox;
+
     Color color;
+    
     Vector2 GetCenterPosicion();
     
     public:

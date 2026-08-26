@@ -3,6 +3,7 @@
 Button_texture::Button_texture(const char *imagePath, float scale, float width, float height, Color color, bool doCenter, Vector2 offset)
 :Button(width, height, color, doCenter, offset)
 {
+    //Loading image
     Image image = LoadImage(imagePath);
     
     int newWidth = static_cast<int>(image.width * scale);
@@ -20,6 +21,6 @@ Button_texture::~Button_texture()
 
 void Button_texture::Draw()
 {
-    DrawRectangle(hitbox.x, hitbox.y, hitbox.width, hitbox.height, color);
-    DrawTexture(texture, hitbox.x + (hitbox.width - texture.width)/2 + 1, hitbox.y + (hitbox.height - texture.height)/2, WHITE);
+    DrawRectangle(hitbox.x, hitbox.y, hitbox.width, hitbox.height, color); //Drawing rectangle
+    DrawTexture(texture, hitbox.x + (hitbox.width - texture.width)/2 + 1, hitbox.y + (hitbox.height - texture.height)/2, WHITE); //Drawing texture
 }

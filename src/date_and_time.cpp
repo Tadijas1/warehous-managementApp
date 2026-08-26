@@ -12,22 +12,26 @@ void Date_and_time::Update()
 {
     time_t t = time(0);
     tm* now = localtime(&t);
-
+    
+    //Geting time values
     hour = now -> tm_hour;
     hour = now -> tm_hour;
     minute = now -> tm_min;
     second = now -> tm_sec;
-
+    
+    //Import it to show_time class
     show_time.text += std::to_string(hour);
     show_time.text += " : ";
     show_time.text += std::to_string(minute);
     show_time.text += " : ";
     show_time.text += std::to_string(second);
-
+    
+    //Geting time values
     day = now -> tm_mday;
     mounth = now -> tm_mon;
     year = now -> tm_year;
-
+    
+    //Import it to date class
     date.text += std::to_string(day);
     date.text += " : ";
     date.text += std::to_string(mounth + 1);

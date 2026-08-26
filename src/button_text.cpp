@@ -7,10 +7,10 @@ void Button_text::DrawTextInside()
     DrawText(text.c_str(), hitbox.x + (hitbox.width - textWidth)/2, hitbox.y + (hitbox.height - textSize)/2, textSize, textColor);
 }
 
-Button_text::Button_text(float width, float height, Color color, bool doCenter, Vector2 offset, int textsize, Color textColor, std::string text)
+Button_text::Button_text(float width, float height, Color color, bool doCenter, Vector2 offset, int textSize, Color textColor, std::string text)
 :Button(width, height, color, doCenter, offset)
 {
-    textSize = textsize;
+    this -> textSize = textSize;
     this -> text = text;
     this -> textColor = textColor;
 }

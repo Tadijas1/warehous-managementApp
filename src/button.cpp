@@ -28,6 +28,8 @@ bool Button::IsHover(Vector2 mousePosicion)
 
 void Button::ChangeColor(int value)
 {
+    //Changign color, but color valure always will by 0-255
+    
     if(color.r + value >= 0) {
         if(color.r + value <= 255) color.r += value;
         else color.r = 255;

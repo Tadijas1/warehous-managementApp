@@ -1,7 +1,7 @@
 #include "button_type.hpp"
 
-Button_type::Button_type(float width, float height, Color color, bool doCenter, Vector2 offset, int textsize, Color textColor, std::string textUp)
-:Button_text(width, height, color, doCenter, offset, textsize, textColor, "")
+Button_type::Button_type(float width, float height, Color color, bool doCenter, Vector2 offset, int textSize, Color textColor, std::string textUp)
+:Button_text(width, height, color, doCenter, offset, textSize, textColor, "")
 {
     this -> textUp = textUp;
 }

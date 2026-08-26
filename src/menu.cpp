@@ -34,6 +34,7 @@ void Menu::Input()
     }
 
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+        //login and password buttons
         if(login.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 1;
         else if(password.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 2;
         else isTyping = 0;

@@ -5,6 +5,7 @@
 class Date_and_time
 {
     Button_text show_time;
+    
     Button_text date;
 
     int day;

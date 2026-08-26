@@ -13,6 +13,7 @@ class Menu
     Button_texture exit;
     Button_type login;
     Button_type password;
+    Button_text confirm;
     int isTyping;
 
     public:

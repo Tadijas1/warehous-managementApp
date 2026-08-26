@@ -26,6 +26,27 @@ bool Button::IsHover(Vector2 mousePosicion)
     return false;
 }
 
+void Button::ChangeColor(int value)
+{
+    if(color.r + value >= 0) {
+        if(color.r + value <= 255) color.r += value;
+        else color.r = 255;
+    }
+    else color.r = 0;
+
+    if(color.g + value >= 0) {
+        if(color.g + value <= 255) color.g += value;
+        else color.g = 255;
+    }
+    else color.g = 0;
+
+    if(color.b + value >= 0) {
+        if(color.b + value <= 255) color.b += value;
+        else color.b = 255;
+    }
+    else color.b = 0;
+}
+
 Vector2 Button::GetCenterPosicion()
 {
     float withCenter = (GetScreenWidth() - hitbox.width)/2;

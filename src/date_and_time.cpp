@@ -4,7 +4,7 @@
 #include "date_and_time.hpp"
 
 Date_and_time::Date_and_time()
-:show_time(130, 25, GRAY , true, {0, -524}, 20), date(130, 25, GRAY, false, {15, 3}, 20, "", DARKBLUE)
+:show_time(130, 25, GRAY , true, {0, -524}, 20), date(130, 25, GRAY, false, {15, 3}, 20, DARKBLUE, "")
 {
 }
 

@@ -11,7 +11,7 @@ int main()
     float background_scale;
     
     //Initing window
-    InitWindow(screenWidth, screenHeight, "werehous-managementApp");
+    InitWindow(screenWidth, screenHeight, "warehous-managementApp");
 
     //loading and scalling background_texture
     background_texture = LoadTexture("textures/background.png");
@@ -22,7 +22,7 @@ int main()
     
     //Creating objects
     Game game = Game();
-    game.AddProfile();
+    game.AddProfiles();
 
     while (!WindowShouldClose())
     {

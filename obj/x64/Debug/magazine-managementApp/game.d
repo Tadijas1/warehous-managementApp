@@ -164,9 +164,10 @@ obj/x64/Debug/magazine-managementApp/game.o: src/game.cpp \
  /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc src/profile.hpp src/menu.hpp \
- src/date_and_time.hpp src/button_text.hpp src/button.hpp \
- src/button_texture.hpp src/button_type.hpp
+ /usr/include/c++/15/bits/vector.tcc src/hover.hpp src/button.hpp \
+ src/topbar.hpp src/date_and_time.hpp src/button_text.hpp \
+ src/button_texture.hpp src/new_password.hpp src/button_type.hpp \
+ src/profile.hpp src/menu.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/iostream:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -374,10 +375,13 @@ build/external/raylib-master/src/raylib.h:
 /usr/include/c++/15/bits/stl_vector.h:
 /usr/include/c++/15/bits/stl_bvector.h:
 /usr/include/c++/15/bits/vector.tcc:
-src/profile.hpp:
-src/menu.hpp:
+src/hover.hpp:
+src/button.hpp:
+src/topbar.hpp:
 src/date_and_time.hpp:
 src/button_text.hpp:
-src/button.hpp:
 src/button_texture.hpp:
+src/new_password.hpp:
 src/button_type.hpp:
+src/profile.hpp:
+src/menu.hpp:

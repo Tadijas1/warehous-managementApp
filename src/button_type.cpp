@@ -41,4 +41,5 @@ void Button_type::Draw()
     DrawRectangle(hitbox.x - 5, hitbox.y - 5, hitbox.width + 10, hitbox.height + 10, PURPLE); // purple arownd rectangle
     DrawRectangle(hitbox.x, hitbox.y, hitbox.width, hitbox.height, color); //place to type
     DrawText(text.c_str(), hitbox.x + 10, hitbox.y + 15, textSize, textColor); //text
+    DrawTextUp();
 }

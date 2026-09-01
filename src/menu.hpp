@@ -1,9 +1,7 @@
 #pragma once
 #include <raylib.h>
 
-#include "date_and_time.hpp"
 #include "button.hpp"
-#include "button_texture.hpp"
 #include "button_type.hpp"
 
 class Game;
@@ -12,12 +10,8 @@ class Menu
 {
     Game* gameptr;
 
-    Date_and_time time;
-
     Button_type login;
     Button_type password;
-
-    Button_texture exit;
     
     Button_text confirm;
     
@@ -26,7 +20,6 @@ class Menu
     public:
     Menu(Game* gameptr);
 
-    void Hover(Button* ptr);
     void Input();
     void Update();
     void Draw();

@@ -52,7 +52,8 @@ obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
  /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h \
  /usr/include/c++/15/bits/uses_allocator.h \
  /usr/include/c++/15/bits/uses_allocator_args.h /usr/include/c++/15/tuple \
- src/profile.hpp /usr/include/c++/15/string \
+ src/hover.hpp src/button.hpp src/topbar.hpp src/date_and_time.hpp \
+ src/button_text.hpp /usr/include/c++/15/string \
  /usr/include/c++/15/bits/stringfwd.h \
  /usr/include/c++/15/bits/char_traits.h \
  /usr/include/c++/15/bits/postypes.h /usr/include/c++/15/cwchar \
@@ -118,9 +119,8 @@ obj/x64/Debug/magazine-managementApp/main.o: src/main.cpp \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/15/bits/charconv.h \
- /usr/include/c++/15/bits/basic_string.tcc src/menu.hpp \
- src/date_and_time.hpp src/button_text.hpp src/button.hpp \
- src/button_texture.hpp src/button_type.hpp
+ /usr/include/c++/15/bits/basic_string.tcc src/button_texture.hpp \
+ src/new_password.hpp src/button_type.hpp src/profile.hpp src/menu.hpp
 /usr/include/stdc-predef.h:
 build/external/raylib-master/src/raylib.h:
 /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h:
@@ -187,7 +187,11 @@ src/game.hpp:
 /usr/include/c++/15/bits/uses_allocator.h:
 /usr/include/c++/15/bits/uses_allocator_args.h:
 /usr/include/c++/15/tuple:
-src/profile.hpp:
+src/hover.hpp:
+src/button.hpp:
+src/topbar.hpp:
+src/date_and_time.hpp:
+src/button_text.hpp:
 /usr/include/c++/15/string:
 /usr/include/c++/15/bits/stringfwd.h:
 /usr/include/c++/15/bits/char_traits.h:
@@ -269,9 +273,8 @@ src/profile.hpp:
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 /usr/include/c++/15/bits/charconv.h:
 /usr/include/c++/15/bits/basic_string.tcc:
-src/menu.hpp:
-src/date_and_time.hpp:
-src/button_text.hpp:
-src/button.hpp:
 src/button_texture.hpp:
+src/new_password.hpp:
 src/button_type.hpp:
+src/profile.hpp:
+src/menu.hpp:

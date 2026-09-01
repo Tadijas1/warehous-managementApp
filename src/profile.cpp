@@ -7,20 +7,17 @@ Profile::Profile(std::string name, std::string surname, int id, int type_of_prof
     this -> surname = surname;
     this -> id = id;
     this -> type_of_profile = type_of_profile;
-    login = name + "@" + std::to_string(id);
-    password = "";
+    
+    std::string text;
+    if(type_of_profile == 0) text = "admin";
+    else if(type_of_profile == 1) text = "deliverer";
+    else if(type_of_profile == 2) text = "seller";
+    login = text + "@" + std::to_string(id);
+    password = "password";
 }
 
 bool Profile::IsMatch(std::string written_login, std::string written_password)
 {
     if(login == written_login && password == written_password) return true;
     return false;
-}
-
-void Profile::print()
-{
-    std::cout<<"name: "<<name<<std::endl;   
-    std::cout<<"surname: "<<surname<<std::endl;   
-    std::cout<<"id: "<<id<<std::endl;   
-    std::cout<<"type_of_profile: "<<type_of_profile<<std::endl;   
 }

@@ -5,7 +5,7 @@
 Game::Game()
 :menu(this), newPassword(this), topbar(this)
 {
-    place = 0;
+    place = 1;
 }
 
 Profile* Game::Checking_profile(std::string written_login, std::string written_password)
@@ -29,28 +29,25 @@ void Game::InputAll()
 {
     topbar.Input();
 
-    if(place == 0) menu.Input();
-    else if(place == 2) std::cout<<loggedInProfile -> password<<std::endl;
+    if(place == 1) menu.Input();
+    else if(place == 2) {}
     else if(place == 3) newPassword.Input();
-    // else if(place == 1)
 }
 
 void Game::UpdateAll()
 {
     topbar.Update();
 
-    if(place == 0) menu.Update();
-    else if(place == 2) std::cout<<loggedInProfile -> password<<std::endl;
+    if(place == 1) menu.Update();
+    else if(place == 2) {}
     else if(place == 3) newPassword.Update();
-    // else if(place == 1)
 }
 
 void Game::DrawAll()
 {
     topbar.Draw();
 
-    if(place == 0) menu.Draw();
-    else if(place == 2) std::cout<<loggedInProfile -> password<<std::endl;
+    if(place == 1) menu.Draw();
+    else if(place == 2) {}
     else if(place == 3) newPassword.Draw();
-    // else if(place == 1)
 }

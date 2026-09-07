@@ -22,7 +22,7 @@ class Game
     public:
     Profile* loggedInProfile;
     Hover hover;
-    int place; //0 - menu, 1 - katalogs, 2 - produkts, 3 - new password
+    int place; //1 - menu, 2 - produkts, 3 - new password
 
     Game();
 

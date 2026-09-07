@@ -13,16 +13,18 @@ New_password::New_password(Game* gameptr)
 }
 void New_password::Input()
 {
+    //hover buttons
     hover.HoverButton(&typingPlace);
     hover.HoverButton(&confirm);
 
     //Mouse input
     if(typingPlace.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) IsTyping = true;
 
+    //Confirm button
     if((confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER) && IsTyping)) && !typingPlace.text.empty() && typingPlace.text != "password") {
         profileptr = gameptr -> loggedInProfile;
         profileptr -> password = typingPlace.text;
-        gameptr -> place = 2;
+        gameptr -> place = 1;
     }
 }
 

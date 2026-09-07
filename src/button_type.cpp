@@ -4,6 +4,7 @@ Button_type::Button_type(float width, float height, Color color, bool doCenter, 
 :Button_text(width, height, color, doCenter, offset, textSize, textColor, "")
 {
     this -> textUp = textUp;
+    isWrong = false;
 }
 
 void Button_type::Update()

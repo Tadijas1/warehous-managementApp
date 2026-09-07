@@ -18,18 +18,22 @@ void Menu::Input()
     gameptr -> hover.HoverButton(&password);
     gameptr -> hover.HoverButton(&confirm);
 
+    //confirm button or enter
     if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER) && isTyping == 2)) {
-        //click on "confirm" or enter
-        if(gameptr -> Checking_profile(login.text, password.text) != nullptr) {
-            //some actions with logged profile pointers
-            Profile* profileptr = gameptr -> Checking_profile(login.text, password.text);
+        //some actions with logged profile pointers
+        Profile* profileptr = gameptr -> Checking_profile(login.text, password.text);
+        if(profileptr != nullptr) {
             gameptr -> loggedInProfile = profileptr;
+            login.isWrong = false;
+            password.isWrong = false;
 
             // Loggining for first time of not
             if(profileptr -> password == "password") gameptr -> place = 3;
             else gameptr -> place = 2;
+        } else {
+            login.wrongInput();
+            password.wrongInput();
         }
-        else std::cout<<"nie udało się zalogować"<<std::endl;
 
         //czyszczenie pól textowych
         login.text = "";
@@ -37,8 +41,8 @@ void Menu::Input()
         isTyping = 0;
     }
 
+    //login and password buttons
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-        //login and password buttons
         if(login.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 1;
         else if(password.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 2;
         else isTyping = 0;

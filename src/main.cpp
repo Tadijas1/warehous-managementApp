@@ -6,16 +6,9 @@ const int screenHeight = 1080;
 
 int main()
 {
-    //local variables
-    Texture2D background_texture;
-    float background_scale;
     
     //Initing window
     InitWindow(screenWidth, screenHeight, "warehous-managementApp");
-
-    //loading and scalling background_texture
-    background_texture = LoadTexture("textures/background.png");
-    background_scale = static_cast<float>(GetScreenWidth()) / background_texture.width;
     
     //Setting FPS
     SetTargetFPS(60);
@@ -33,10 +26,9 @@ int main()
         game.UpdateAll();
 
         BeginDrawing();
-            ClearBackground(GRAY);
+            ClearBackground(Color{40, 40, 40, 255});
             
             // Draw
-            DrawTextureEx(background_texture, (Vector2){0, 30}, 0.0f, background_scale, WHITE);
             game.DrawAll();
         EndDrawing();
     }

@@ -125,8 +125,10 @@ GENERATED += $(OBJDIR)/button_type.o
 GENERATED += $(OBJDIR)/date_and_time.o
 GENERATED += $(OBJDIR)/game.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/menagment_panel.o
 GENERATED += $(OBJDIR)/menu.o
 GENERATED += $(OBJDIR)/new_password.o
+GENERATED += $(OBJDIR)/produkt.o
 GENERATED += $(OBJDIR)/profile.o
 GENERATED += $(OBJDIR)/topbar.o
 OBJECTS += $(OBJDIR)/button.o
@@ -136,8 +138,10 @@ OBJECTS += $(OBJDIR)/button_type.o
 OBJECTS += $(OBJDIR)/date_and_time.o
 OBJECTS += $(OBJDIR)/game.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/menagment_panel.o
 OBJECTS += $(OBJDIR)/menu.o
 OBJECTS += $(OBJDIR)/new_password.o
+OBJECTS += $(OBJDIR)/produkt.o
 OBJECTS += $(OBJDIR)/profile.o
 OBJECTS += $(OBJDIR)/topbar.o
 
@@ -224,10 +228,16 @@ $(OBJDIR)/game.o: src/game.cpp
 $(OBJDIR)/main.o: src/main.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menagment_panel.o: src/menagment_panel.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/menu.o: src/menu.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/new_password.o: src/new_password.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/produkt.o: src/produkt.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/profile.o: src/profile.cpp

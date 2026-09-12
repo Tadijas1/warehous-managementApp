@@ -167,7 +167,7 @@ obj/x64/Debug/magazine-managementApp/game.o: src/game.cpp \
  /usr/include/c++/15/bits/vector.tcc src/hover.hpp src/button.hpp \
  src/topbar.hpp src/date_and_time.hpp src/button_text.hpp \
  src/button_texture.hpp src/new_password.hpp src/button_type.hpp \
- src/profile.hpp src/menu.hpp
+ src/profile.hpp src/menu.hpp src/menagment_panel.hpp src/produkt.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/iostream:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -385,3 +385,5 @@ src/new_password.hpp:
 src/button_type.hpp:
 src/profile.hpp:
 src/menu.hpp:
+src/menagment_panel.hpp:
+src/produkt.hpp:

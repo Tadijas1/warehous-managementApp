@@ -169,7 +169,7 @@ obj/x64/Debug/magazine-managementApp/menu.o: src/menu.cpp \
  /usr/include/c++/15/bits/vector.tcc src/button_type.hpp \
  src/button_text.hpp src/game.hpp src/hover.hpp src/topbar.hpp \
  src/date_and_time.hpp src/button_texture.hpp src/new_password.hpp \
- src/profile.hpp
+ src/profile.hpp src/menagment_panel.hpp src/produkt.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/string:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -387,3 +387,5 @@ src/date_and_time.hpp:
 src/button_texture.hpp:
 src/new_password.hpp:
 src/profile.hpp:
+src/menagment_panel.hpp:
+src/produkt.hpp:

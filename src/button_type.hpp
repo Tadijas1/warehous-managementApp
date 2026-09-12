@@ -16,6 +16,7 @@ class Button_type :public Button_text
 
     void Update();
     void wrongInput() {if(!isWrong) {color.g -= 100; color.b -= 100; isWrong = true;}}
+    void UnWrongInput() {isWrong = false; color = WHITE;}
     
     void DrawTextUp();
     void DrawLine();

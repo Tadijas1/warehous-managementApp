@@ -7,15 +7,18 @@
 #include "new_password.hpp"
 #include "profile.hpp"
 #include "menu.hpp"
+#include "menagment_panel.hpp"
 
 class Game
 {
-    Topbar topbar;
+    // Texture valables
+    Texture2D background_texture;
+    float background_scale;
     
+    Topbar topbar;
     Menu menu;
     New_password newPassword;
-    // Kategoris
-    // Warehous
+    Menagment_panel panel;
     std::vector<Profile> profiles;
     
     

@@ -24,8 +24,8 @@ void Menu::Input()
         Profile* profileptr = gameptr -> Checking_profile(login.text, password.text);
         if(profileptr != nullptr) {
             gameptr -> loggedInProfile = profileptr;
-            login.isWrong = false;
-            password.isWrong = false;
+            login.UnWrongInput();
+            password.UnWrongInput();
 
             // Loggining for first time of not
             if(profileptr -> password == "password") gameptr -> place = 3;

@@ -8,4 +8,4 @@ void Topbar::Input() { gameptr -> hover.HoverButton(&exit); if(exit.IsPressd(Get
 
 void Topbar::Update() { time.Update(); }
 
-void Topbar::Draw() { time.Draw(); exit.Draw(); }
+void Topbar::Draw() { DrawRectangle(0, 0, GetScreenWidth(), 30, GRAY); time.Draw(); exit.Draw(); }

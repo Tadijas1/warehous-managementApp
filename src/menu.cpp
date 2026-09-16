@@ -18,8 +18,12 @@ void Menu::Input()
     gameptr -> hover.HoverButton(&password);
     gameptr -> hover.HoverButton(&confirm);
 
+    //Unmakeing buttons red afer wrong loginning
+    if(login.isWrong && isTyping != 0) login.UnWrongInput();
+    if(password.isWrong && isTyping != 0) password.UnWrongInput();
+
     //confirm button or enter
-    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER) && isTyping == 2)) {
+    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER))) {
         //some actions with logged profile pointers
         Profile* profileptr = gameptr -> Checking_profile(login.text, password.text);
         if(profileptr != nullptr) {
@@ -30,27 +34,27 @@ void Menu::Input()
             // Loggining for first time of not
             if(profileptr -> password == "password") gameptr -> place = 3;
             else gameptr -> place = 2;
+
+            //czyszczenie pól textowych
+            login.text = "";
+            password.text = "";
         } else {
             login.wrongInput();
             password.wrongInput();
         }
-
-        //czyszczenie pól textowych
-        login.text = "";
-        password.text = "";
+        
         isTyping = 0;
     }
 
     //login and password buttons
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-        if(login.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 1;
-        else if(password.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) isTyping = 2;
+        if(login.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) { isTyping = 1; }
+        else if(password.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) { isTyping = 2; }
         else isTyping = 0;
     }
 
-
     //Keyboard
-    if(IsKeyPressed(KEY_TAB) && isTyping != 0) {isTyping++; if(isTyping == 3) isTyping = 1;}
+    if(IsKeyPressed(KEY_TAB)) {isTyping++; if(isTyping == 3) isTyping = 1;}
 }
 
 void Menu::Update()

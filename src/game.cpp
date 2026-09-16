@@ -34,7 +34,7 @@ void Game::InputAll()
     topbar.Input();
 
     if(place == 1) menu.Input();
-    else if(place == 2) {panel.Input();}
+    else if(place == 2) panel.Input();
     else if(place == 3) newPassword.Input();
 }
 

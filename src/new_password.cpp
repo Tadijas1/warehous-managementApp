@@ -17,14 +17,29 @@ void New_password::Input()
     hover.HoverButton(&typingPlace);
     hover.HoverButton(&confirm);
 
+    //Unmakeing button red afer wrong loginning
+    if(typingPlace.isWrong && IsTyping) typingPlace.UnWrongInput();
+
     //Mouse input
-    if(typingPlace.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) IsTyping = true;
+    if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+        if(typingPlace.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) IsTyping = true;
+        else IsTyping = 0;
+    }
+
+    //TAB button
+    if(IsKeyPressed(KEY_TAB)) {IsTyping = true;}
+
 
     //Confirm button
-    if((confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER) && IsTyping)) && !typingPlace.text.empty() && typingPlace.text != "password") {
-        profileptr = gameptr -> loggedInProfile;
-        profileptr -> password = typingPlace.text;
-        gameptr -> place = 1;
+    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER))) {
+        if(typingPlace.text == "password" or typingPlace.text.empty()) {
+            typingPlace.wrongInput();
+            IsTyping = false;
+        } else {
+            profileptr = gameptr -> loggedInProfile;
+            profileptr -> password = typingPlace.text;
+            gameptr -> place = 1;
+        }
     }
 }
 

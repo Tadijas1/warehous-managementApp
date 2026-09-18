@@ -19,6 +19,7 @@ class Button
     bool IsPressd(Vector2 mousePosicion, bool mousePressed);
     bool IsHover(Vector2 mousePosicion);
     void ChangeColor(int value);
+    void ChangePosicion(int new_x, int new_y);
 
     void Draw();
 };

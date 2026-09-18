@@ -121,7 +121,10 @@ obj/x64/Debug/magazine-managementApp/produkt.o: src/produkt.cpp \
  /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc
+ /usr/include/c++/15/bits/vector.tcc src/game.hpp src/hover.hpp \
+ src/topbar.hpp src/date_and_time.hpp src/button_texture.hpp \
+ src/new_password.hpp src/button_type.hpp src/profile.hpp src/menu.hpp \
+ src/menagment_panel.hpp
 /usr/include/stdc-predef.h:
 src/produkt.hpp:
 build/external/raylib-master/src/raylib.h:
@@ -271,3 +274,13 @@ src/button.hpp:
 /usr/include/c++/15/bits/stl_vector.h:
 /usr/include/c++/15/bits/stl_bvector.h:
 /usr/include/c++/15/bits/vector.tcc:
+src/game.hpp:
+src/hover.hpp:
+src/topbar.hpp:
+src/date_and_time.hpp:
+src/button_texture.hpp:
+src/new_password.hpp:
+src/button_type.hpp:
+src/profile.hpp:
+src/menu.hpp:
+src/menagment_panel.hpp:

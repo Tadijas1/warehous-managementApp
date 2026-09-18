@@ -49,6 +49,12 @@ void Button::ChangeColor(int value)
     else color.b = 0;
 }
 
+void Button::ChangePosicion(int new_x, int new_y)
+{
+    hitbox.x = new_x;
+    hitbox.y = new_y;
+}
+
 Vector2 Button::GetCenterPosicion()
 {
     float withCenter = (GetScreenWidth() - hitbox.width)/2;

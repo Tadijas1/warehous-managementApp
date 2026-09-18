@@ -3,7 +3,7 @@
 #include "game.hpp"
 
 Game::Game()
-:menu(this), newPassword(this), topbar(this)
+:menu(this), newPassword(this), topbar(this), panel(this)
 {
     // Backgroung texture load
     background_texture = LoadTexture("textures/background.png");
@@ -43,6 +43,7 @@ void Game::UpdateAll()
     topbar.Update();
 
     if(place == 1) menu.Update();
+    else if(place == 2) panel.Update();
     else if(place == 3) newPassword.Update();
 }
 

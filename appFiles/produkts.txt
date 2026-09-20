@@ -1,0 +1,12 @@
+Ananas
+9973
+1
+Banan
+1000
+5
+Mleko
+50
+10
+Piwo
+100
+8

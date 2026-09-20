@@ -8,19 +8,22 @@ class Game;
 
 class Menagment_panel
 {
-    
     Game* gameptr;
 
+    //reading data form file
+    void ReadingData();
+    
     int fromThereShow;
     std::vector<Produkt> produkts;
-
+    
     Button_text confirm;
-
+    
     public:
-    Menagment_panel(Game* gameptr) 
-    :confirm(300, 50, LIME, true, {0, 485}, 30, BLACK, "CONFIRM ALL") { AddProdukts(gameptr); fromThereShow = 0; this -> gameptr = gameptr; }
+    //saving data to file
+    void SaveingData();
 
-    void AddProdukts(Game* gameptr); // for tests
+    Menagment_panel(Game* gameptr);
+    
     void SortProdukts();
 
     void Input();

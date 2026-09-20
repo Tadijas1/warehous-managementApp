@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cctype>
+#include <fstream>
+#include <string>
 
 #include "menagment_panel.hpp"
 #include "game.hpp"
@@ -29,13 +31,61 @@ void Menagment_panel::SortProdukts()
     for(int i = 0; i < produkts.size(); i++) {produkts[i].NewPlace(i + 1);}
 }
 
-void Menagment_panel::AddProdukts(Game* gameptr)
+Menagment_panel::Menagment_panel(Game* gameptr)
+:confirm(300, 50, LIME, true, {0, 485}, 30, BLACK, "CONFIRM ALL")
 {
-    // In 11 objets, boards are out of screen
-    produkts.push_back(Produkt{gameptr, "peceb", 0, 1000, 5});
-    produkts.push_back(Produkt{gameptr, "butelka", 1, 3, 300});
-    produkts.push_back(Produkt{gameptr, "ananas", 2, 10, 1150});
+    this -> gameptr = gameptr;
+
+    //giving pointer to topbar
+    gameptr -> topbar.panelptr = this;
+
+    fromThereShow = 0;
+    ReadingData();
+}
+
+void Menagment_panel::ReadingData()
+{
+    std::ifstream plik("appFiles/produkts.txt");
+
+    if(!plik.is_open()) return;
+
+
+    std::string line;
+    std::string name;
+    int price, howMany;
+    int i = 0;
+
+    while(std::getline(plik, line))
+    {
+        if(i%3 == 0) name = line;
+        if(i%3 == 1) howMany = std::stoi(line);
+        if(i%3 == 2) {
+            price = std::stoi(line);
+            Produkt p(gameptr, name, i/3, price, howMany);
+            produkts.push_back(p);
+        }
+
+        i++;
+    }
+    plik.close();
+
     SortProdukts();
+}
+
+void Menagment_panel::SaveingData()
+{
+    std::ofstream plik("appFiles/produkts.txt");
+
+    std::string line;
+
+    for(auto& produkt : produkts)
+    {
+        plik << produkt.name<<"\n";
+        plik << produkt.numberOfProdukts<<"\n";
+        plik << produkt.price<<"\n";
+    }
+
+    plik.close();
 }
 
 void Menagment_panel::Input()
@@ -52,8 +102,8 @@ void Menagment_panel::Input()
 
     for(int i = 0; i < produkts.size(); i++) {produkts[i].NewPlace(i + 1 - fromThereShow);}
 
-    //confirm button
-    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) {
+    //confirm button or enter
+    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_ENTER)) {
         for(auto& produkt : produkts) { produkt.resetNOP(); }
     }
 }

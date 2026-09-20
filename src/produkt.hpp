@@ -17,8 +17,6 @@ class Produkt
     Rectangle rect;
 
     int id;
-    int price;
-    int numberOfProdukts;
     int numberOfPicked;
     int NOP_size;
     int NOP_width;
@@ -28,6 +26,8 @@ class Produkt
     
     public:
     std::string name;
+    int numberOfProdukts;
+    int price;
     
     Produkt(Game* gameptr, std::string name = "produkt", int id = 0, int price = 0, int numberOfProdukts = 0);
 

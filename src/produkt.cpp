@@ -21,7 +21,7 @@ removeProdukt(50, 50, RED, false, {1720, rect.y + (rect.height - 50)/2}, 20, BLA
 
 void Produkt::NewPlace(int place)
 {
-    rect = Rectangle{0, 100.0f * place - 69, GetScreenWidth() * 1.0f, 100};
+    rect = Rectangle{2, 100.0f * place - 67, GetScreenWidth() - 4.0f, 100};
     addProdukt.ChangePosicion(1850, rect.y + (rect.height - 50)/2);
     removeProdukt.ChangePosicion(1720, rect.y + (rect.height - 50)/2);
 }
@@ -51,7 +51,7 @@ void Produkt::Update()
 
 void Produkt::Draw()
 {
-    DrawRectangle(rect.x, rect.y - 1, GetScreenWidth(), rect.height - 2, Color{70, 70, 70, 255});
+    DrawRectangle(rect.x, rect.y - 1, rect.width, rect.height - 2, Color{70, 70, 70, 255});
     addProdukt.Draw();
     removeProdukt.Draw();
     TextsDraw();

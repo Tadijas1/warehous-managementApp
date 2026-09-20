@@ -8,7 +8,7 @@ Topbar::Topbar(Game *game)
 void Topbar::Input() 
 { 
     gameptr -> hover.HoverButton(&exit);
-    if(exit.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) { panelptr -> SaveingData(); CloseWindow(); }
+    if(exit.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_Q)) { panelptr -> SaveingData(); CloseWindow(); }
 }
 
 void Topbar::Update() { time.Update(); }

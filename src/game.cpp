@@ -1,9 +1,7 @@
-#include <iostream>
-
 #include "game.hpp"
 
 Game::Game()
-:menu(this), newPassword(this), panel(this), topbar(this)
+    : menu(this), newPassword(this), panel(this), topbar(this)
 {
     // Backgroung texture load
     background_texture = LoadTexture("textures/background.png");

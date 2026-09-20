@@ -40,6 +40,7 @@ Menagment_panel::Menagment_panel(Game* gameptr)
     gameptr -> topbar.panelptr = this;
 
     fromThereShow = 0;
+    whichProduktMarked = 1;
     ReadingData();
 }
 
@@ -76,8 +77,6 @@ void Menagment_panel::SaveingData()
 {
     std::ofstream plik("appFiles/produkts.txt");
 
-    std::string line;
-
     for(auto& produkt : produkts)
     {
         plik << produkt.name<<"\n";
@@ -106,15 +105,29 @@ void Menagment_panel::Input()
     if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_ENTER)) {
         for(auto& produkt : produkts) { produkt.resetNOP(); }
     }
+
+    //moving between produkts with TAB
+    if(((IsKeyPressed(KEY_TAB) && IsKeyDown(KEY_LEFT_SHIFT)) or IsKeyPressed(KEY_UP)) && whichProduktMarked > 1) whichProduktMarked--;
+    else if((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) or IsKeyPressed(KEY_DOWN)) if(whichProduktMarked < produkts.size()) whichProduktMarked++;
+
+    //changing numbersOfPicked
+    if(IsKeyPressed(KEY_LEFT)) produkts[whichProduktMarked - 1].numberOfPicked--;
+    if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
 }
 
 void Menagment_panel::Update()
 {
     for(auto& produkt : produkts) { produkt.Update(); }
 }
+void Menagment_panel::markedDraw()
+{
+    DrawRectangle(0, 100.0f * whichProduktMarked - 70, GetScreenWidth() * 1.0f, 102, YELLOW);
+}
 
 void Menagment_panel::Draw()
 {
+    markedDraw();
     for(auto it = produkts.begin() + fromThereShow; it != produkts.end(); it++) {it -> Draw();}
     confirm.Draw();
+
 }

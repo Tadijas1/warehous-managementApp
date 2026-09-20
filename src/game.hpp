@@ -15,7 +15,6 @@ class Game
     Texture2D background_texture;
     float background_scale;
     
-    
     // menu
     Menu menu;
     New_password newPassword;

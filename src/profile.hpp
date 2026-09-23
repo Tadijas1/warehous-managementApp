@@ -4,17 +4,16 @@
 
 class Profile
 {
+    std::string login;
+    
+    public:
     std::string name;
     std::string surname;
     int id;
     int type_of_profile; //0 admin, 1 deliverer, 2 seller
-    std::string login;
-    
-    
-    public:
     std::string password;
 
-    Profile(std::string name = "", std::string surname = "", int id = 0, int type_of_profile = 0);
+    Profile(std::string name = "", std::string surname = "", int id = 0, int type_of_profile = 0, std::string password = "password");
     
     bool IsMatch(std::string written_login, std::string written_password);
 };

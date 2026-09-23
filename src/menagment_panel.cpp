@@ -111,7 +111,7 @@ void Menagment_panel::Input()
     else if((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) or IsKeyPressed(KEY_DOWN)) if(whichProduktMarked < produkts.size()) whichProduktMarked++;
 
     //changing numbersOfPicked
-    if(IsKeyPressed(KEY_LEFT)) produkts[whichProduktMarked - 1].numberOfPicked--;
+    if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
     if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
 }
 

@@ -15,7 +15,6 @@ int main()
     
     //Creating objects
     Game game = Game();
-    game.AddProfiles();
 
     while (!WindowShouldClose())
     {

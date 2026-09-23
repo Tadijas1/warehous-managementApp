@@ -19,11 +19,17 @@ class Game
     Menu menu;
     New_password newPassword;
     
+    // reading profiles data
+    void ReadingData();
+    
     // menagment panel
     Menagment_panel panel;
     std::vector<Profile> profiles;
     
     public:
+    // saveing profiles data
+    void SaveingData();
+
     Topbar topbar;
     Profile* loggedInProfile;
     Hover hover;
@@ -32,7 +38,6 @@ class Game
     Game();
     
     Profile* Checking_profile(std::string written_login, std::string written_password);
-    void AddProfiles(); //tests
 
     void InputAll();
     void UpdateAll();

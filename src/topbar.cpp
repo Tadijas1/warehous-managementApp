@@ -2,13 +2,13 @@
 #include "topbar.hpp"
 #include "game.hpp"
 
-Topbar::Topbar(Game *game)
+Topbar::Topbar(Game *gameptr)
 :exit("textures/cross.png", 0.03, 25, 25, RED, false, {1890, 2}) { this->gameptr = gameptr; this -> panelptr = panelptr;}
 
 void Topbar::Input() 
 { 
     gameptr -> hover.HoverButton(&exit);
-    if(exit.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_Q)) { panelptr -> SaveingData(); CloseWindow(); }
+    if(exit.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_Q)) { panelptr -> SaveingData(); gameptr -> SaveingData(); CloseWindow(); }
 }
 
 void Topbar::Update() { time.Update(); }

@@ -102,17 +102,25 @@ void Menagment_panel::Input()
     for(int i = 0; i < produkts.size(); i++) {produkts[i].NewPlace(i + 1 - fromThereShow);}
 
     //confirm button or enter
-    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) or IsKeyPressed(KEY_ENTER)) {
+    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || IsKeyPressed(KEY_ENTER)) {
         for(auto& produkt : produkts) { produkt.resetNOP(); }
     }
 
-    //moving between produkts with TAB
-    if(((IsKeyPressed(KEY_TAB) && IsKeyDown(KEY_LEFT_SHIFT)) or IsKeyPressed(KEY_UP)) && whichProduktMarked > 1) whichProduktMarked--;
-    else if((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) or IsKeyPressed(KEY_DOWN)) if(whichProduktMarked < produkts.size()) whichProduktMarked++;
+    //moving between produkts with TAB and arrows
+    if(((IsKeyPressed(KEY_TAB) && IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_K)) && whichProduktMarked > 1) whichProduktMarked--;
+    else if((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_J)) if(whichProduktMarked < produkts.size()) whichProduktMarked++;
 
     //changing numbersOfPicked
-    if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
-    if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
+    if(currentProfileptr -> type_of_profile == 1) {
+        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked -1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;    
+        if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
+    } else if(currentProfileptr ->type_of_profile == 2) {
+        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
+        if(IsKeyPressed(KEY_RIGHT) && produkts[whichProduktMarked -1].numberOfPicked < 0) produkts[whichProduktMarked - 1].numberOfPicked++; 
+    } else {
+        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
+        if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
+    }
 }
 
 void Menagment_panel::Update()

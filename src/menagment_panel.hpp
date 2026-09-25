@@ -5,10 +5,12 @@
 #include "button_text.hpp"
 
 class Game;
+class Profile;
 
 class Menagment_panel
 {
     Game* gameptr;
+    Profile* currentProfileptr;
 
     //reading produkts data form file
     void ReadingData();
@@ -26,6 +28,7 @@ class Menagment_panel
 
     Menagment_panel(Game* gameptr);
     
+    void AddLoggedInProfile(Profile* profileptr) {currentProfileptr = profileptr;}
     void SortProdukts();
 
     void Input();

@@ -24,10 +24,12 @@ void Menu::Input()
 
     //confirm button or enter
     if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || (IsKeyPressed(KEY_ENTER))) {
+
         //some actions with logged profile pointers
         Profile* profileptr = gameptr -> Checking_profile(login.text, password.text);
         if(profileptr != nullptr) {
             gameptr -> loggedInProfile = profileptr;
+            gameptr -> AddProfileToPanel(profileptr);
             login.UnWrongInput();
             password.UnWrongInput();
 

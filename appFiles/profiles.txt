@@ -2,7 +2,7 @@ Liam
 Smith
 0
 0
-password
+admin
 Oliver
 Johnson
 1

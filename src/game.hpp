@@ -38,6 +38,7 @@ class Game
     Game();
     
     Profile* Checking_profile(std::string written_login, std::string written_password);
+    void AddProfileToPanel(Profile* profileptr) {panel.AddLoggedInProfile(profileptr);}
 
     void InputAll();
     void UpdateAll();

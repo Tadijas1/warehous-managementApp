@@ -5,7 +5,9 @@
 #include "game.hpp"
 
 Menu::Menu(Game* gameptr)
-:login(600, 75, WHITE, true, {0, -120}, 50, BLACK, "Login:"), password(600, 75, WHITE, true, {0, 120}, 50, BLACK,"Password:"), confirm(300, 50, LIME, true, {0, 300}, 30, BLACK, "CONFIRM")
+:login(600, 75, WHITE, true, {0, -170}, 50, BLACK, "Login:"),
+password(600, 75, WHITE, true, {0, 70}, 50, BLACK,"Password:"),
+confirm(300, 50, LIME, true, {0, 280}, 30, BLACK, "CONFIRM")
 {
     this -> gameptr = gameptr;
     isTyping = 0;
@@ -37,7 +39,7 @@ void Menu::Input()
             if(profileptr -> password == "password") gameptr -> place = 3;
             else gameptr -> place = 2;
 
-            //czyszczenie pól textowych
+            //Reading text places
             login.text = "";
             password.text = "";
         } else {

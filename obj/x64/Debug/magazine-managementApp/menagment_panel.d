@@ -169,9 +169,9 @@ obj/x64/Debug/magazine-managementApp/menagment_panel.o: \
  /usr/include/c++/15/bits/stl_bvector.h \
  /usr/include/c++/15/bits/vector.tcc src/produkt.hpp \
  build/external/raylib-master/src/raylib.h src/button_text.hpp \
- src/button.hpp src/game.hpp src/hover.hpp src/topbar.hpp \
- src/date_and_time.hpp src/button_texture.hpp src/new_password.hpp \
- src/button_type.hpp src/profile.hpp src/menu.hpp
+ src/button.hpp src/new_produkt.hpp src/button_type.hpp src/game.hpp \
+ src/hover.hpp src/topbar.hpp src/date_and_time.hpp \
+ src/button_texture.hpp src/new_password.hpp src/profile.hpp src/menu.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/iostream:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -387,12 +387,13 @@ src/produkt.hpp:
 build/external/raylib-master/src/raylib.h:
 src/button_text.hpp:
 src/button.hpp:
+src/new_produkt.hpp:
+src/button_type.hpp:
 src/game.hpp:
 src/hover.hpp:
 src/topbar.hpp:
 src/date_and_time.hpp:
 src/button_texture.hpp:
 src/new_password.hpp:
-src/button_type.hpp:
 src/profile.hpp:
 src/menu.hpp:

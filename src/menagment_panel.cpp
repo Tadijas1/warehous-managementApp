@@ -32,7 +32,7 @@ void Menagment_panel::SortProdukts()
 }
 
 Menagment_panel::Menagment_panel(Game* gameptr)
-:confirm(300, 50, LIME, true, {0, 485}, 30, BLACK, "CONFIRM ALL")
+:confirm(300, 50, LIME, true, {0, 485}, 30, BLACK, "CONFIRM ALL"), addProdukt_button(0, 0, BLACK, true)
 {
     this -> gameptr = gameptr;
 
@@ -42,6 +42,19 @@ Menagment_panel::Menagment_panel(Game* gameptr)
     fromThereShow = 0;
     whichProduktMarked = 1;
     ReadingData();
+    if(produkts.size() < 10) addProdukt_button = Button_text{GetScreenWidth() - 4.0f, 98, DARKGREEN, false, {2, 100.f * (produkts.size()+1) - 68}, 100, BLACK, "+"};
+    else addProdukt_button = Button_text{GetScreenWidth() - 4.0f, 98, DARKGREEN, false, {2, 100.f * 11 - 68}, 100, BLACK, "+"};
+}
+
+void Menagment_panel::AddProdukt(std::string name, int howMany, int price)
+{
+    Produkt p{gameptr, name, produkts.size(), price, howMany};
+    produkts.push_back(p);
+
+    // New posicion of addProdukt_button
+    if(produkts.size() < 10) addProdukt_button.ChangePosicion(2, 100.f * (produkts.size()+1) - 68);
+    else addProdukt_button.ChangePosicion(2, 100.f * 11 - 68);
+    SortProdukts();
 }
 
 void Menagment_panel::ReadingData()
@@ -95,32 +108,51 @@ void Menagment_panel::Input()
     // produkts input
     for(auto& produkt : produkts) { produkt.Input(); }
 
+    //moving between produkts with TAB and arrows
+    if(((IsKeyPressed(KEY_TAB) && IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_K) || IsKeyPressed(KEY_UP)) && fromThereShow + whichProduktMarked != 1) whichProduktMarked--;
+    else if(((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_J) || IsKeyPressed(KEY_DOWN)) && fromThereShow + whichProduktMarked < produkts.size()) whichProduktMarked++;
+    else if(((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_J) || IsKeyPressed(KEY_DOWN)) && fromThereShow + whichProduktMarked == produkts.size() && currentProfileptr -> type_of_profile == 0) {
+        whichProduktMarked++;
+        addProdukt_button.ChangePosicion(2, 100.f * 10 - 68);
+    }
+
     //arrow up and down
-    if(IsKeyPressed(KEY_DOWN) && produkts.size() - fromThereShow > 10) fromThereShow++;
-    if(IsKeyPressed(KEY_UP) && fromThereShow > 0) fromThereShow--;
-
+    if(whichProduktMarked > 10) {fromThereShow++; whichProduktMarked--;}
+    if(whichProduktMarked < 1) {fromThereShow--; whichProduktMarked++;}
     for(int i = 0; i < produkts.size(); i++) {produkts[i].NewPlace(i + 1 - fromThereShow);}
+    
+    //changing numbersOfPicked
+    if(currentProfileptr -> type_of_profile == 0) {
+        if(whichProduktMarked+fromThereShow <= produkts.size()) {
+            if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked+fromThereShow - 1].numberOfProdukts + produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked > 0) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked--;
+            if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked++;
+        }
+    }
+    else if(currentProfileptr -> type_of_profile == 1) {
+        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked > 0) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked--;    
+        if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked++;
+    } else {
+        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked+fromThereShow - 1].numberOfProdukts + produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked > 0) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked--;
+        if(IsKeyPressed(KEY_RIGHT) && produkts[whichProduktMarked+fromThereShow -1].numberOfPicked < 0) produkts[whichProduktMarked+fromThereShow - 1].numberOfPicked++; 
+    }
 
-    //confirm button or enter
-    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) || IsKeyPressed(KEY_ENTER)) {
+    // What do to if click enter
+    if(IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_SPACE)) {
+        //Adding produkts
+        if(currentProfileptr -> type_of_profile == 0 && whichProduktMarked+fromThereShow == produkts.size() + 1) {
+            addProdukt_button.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT));
+            gameptr -> place = 4;
+        }
+        //confirm button or enter
+        else {
+            for(auto& produkt : produkts) { produkt.resetNOP(); }
+        }
+    }
+
+    if(confirm.IsPressd(GetMousePosition(), IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) {
         for(auto& produkt : produkts) { produkt.resetNOP(); }
     }
 
-    //moving between produkts with TAB and arrows
-    if(((IsKeyPressed(KEY_TAB) && IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_K)) && whichProduktMarked > 1) whichProduktMarked--;
-    else if((IsKeyPressed(KEY_TAB) && !IsKeyDown(KEY_LEFT_SHIFT)) || IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_J)) if(whichProduktMarked < produkts.size()) whichProduktMarked++;
-
-    //changing numbersOfPicked
-    if(currentProfileptr -> type_of_profile == 1) {
-        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked -1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;    
-        if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
-    } else if(currentProfileptr ->type_of_profile == 2) {
-        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
-        if(IsKeyPressed(KEY_RIGHT) && produkts[whichProduktMarked -1].numberOfPicked < 0) produkts[whichProduktMarked - 1].numberOfPicked++; 
-    } else {
-        if(IsKeyPressed(KEY_LEFT) && produkts[whichProduktMarked - 1].numberOfProdukts + produkts[whichProduktMarked - 1].numberOfPicked > 0) produkts[whichProduktMarked - 1].numberOfPicked--;
-        if(IsKeyPressed(KEY_RIGHT)) produkts[whichProduktMarked - 1].numberOfPicked++;
-    }
 }
 
 void Menagment_panel::Update()
@@ -135,7 +167,7 @@ void Menagment_panel::markedDraw()
 void Menagment_panel::Draw()
 {
     markedDraw();
+    if(currentProfileptr -> type_of_profile == 0) addProdukt_button.Draw();
     for(auto it = produkts.begin() + fromThereShow; it != produkts.end(); it++) {it -> Draw();}
     confirm.Draw();
-
 }

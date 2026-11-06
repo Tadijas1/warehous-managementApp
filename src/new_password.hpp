@@ -12,8 +12,6 @@ class New_password
     Game* gameptr;
     Profile* profileptr;
 
-    Hover hover;
-
     Button_type typingPlace;
     Button_text confirm;
 

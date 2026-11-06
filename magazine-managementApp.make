@@ -128,6 +128,7 @@ GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/menagment_panel.o
 GENERATED += $(OBJDIR)/menu.o
 GENERATED += $(OBJDIR)/new_password.o
+GENERATED += $(OBJDIR)/new_produkt.o
 GENERATED += $(OBJDIR)/produkt.o
 GENERATED += $(OBJDIR)/profile.o
 GENERATED += $(OBJDIR)/topbar.o
@@ -141,6 +142,7 @@ OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/menagment_panel.o
 OBJECTS += $(OBJDIR)/menu.o
 OBJECTS += $(OBJDIR)/new_password.o
+OBJECTS += $(OBJDIR)/new_produkt.o
 OBJECTS += $(OBJDIR)/produkt.o
 OBJECTS += $(OBJDIR)/profile.o
 OBJECTS += $(OBJDIR)/topbar.o
@@ -235,6 +237,9 @@ $(OBJDIR)/menu.o: src/menu.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/new_password.o: src/new_password.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/new_produkt.o: src/new_produkt.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/produkt.o: src/produkt.cpp

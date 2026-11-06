@@ -25,6 +25,10 @@ class Game
     // menagment panel
     Menagment_panel panel;
     std::vector<Profile> profiles;
+
+    //Adding produkt class
+    New_produkt newProdukt;
+    bool isAdding;
     
     public:
     // saveing profiles data
@@ -33,9 +37,10 @@ class Game
     Topbar topbar;
     Profile* loggedInProfile;
     Hover hover;
-    int place; //1 - menu, 2 - produkts, 3 - new password
+    int place; //1 - menu, 2 - produkts, 3 - new password, 4 - new produkt
     
     Game();
+    ~Game();
     
     Profile* Checking_profile(std::string written_login, std::string written_password);
     void AddProfileToPanel(Profile* profileptr) {panel.AddLoggedInProfile(profileptr);}

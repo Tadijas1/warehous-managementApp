@@ -167,7 +167,7 @@ obj/x64/Debug/magazine-managementApp/topbar.o: src/topbar.cpp \
  /usr/include/c++/15/bits/stl_bvector.h \
  /usr/include/c++/15/bits/vector.tcc src/button_texture.hpp src/game.hpp \
  src/hover.hpp src/new_password.hpp src/button_type.hpp src/profile.hpp \
- src/menu.hpp src/menagment_panel.hpp src/produkt.hpp
+ src/menu.hpp src/menagment_panel.hpp src/produkt.hpp src/new_produkt.hpp
 /usr/include/stdc-predef.h:
 /usr/include/c++/15/iostream:
 /usr/include/c++/15/bits/requires_hosted.h:
@@ -387,3 +387,4 @@ src/profile.hpp:
 src/menu.hpp:
 src/menagment_panel.hpp:
 src/produkt.hpp:
+src/new_produkt.hpp:

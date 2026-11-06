@@ -50,7 +50,7 @@ void Game::SaveingData()
 }
 
 Game::Game()
-: menu(this), newPassword(this), panel(this), topbar(this)
+: menu(this), newPassword(this), panel(this), topbar(this), newProdukt(this, &panel)
 {
     // Backgroung texture load
     background_texture = LoadTexture("textures/background.png");
@@ -59,6 +59,13 @@ Game::Game()
     place = 1;
 
     ReadingData();
+}
+
+Game::~Game()
+{
+    // Something is sitll wroing, but app is working, so I will fix it later
+    panel.SaveingData();
+    SaveingData();
 }
 
 Profile* Game::Checking_profile(std::string written_login, std::string written_password)
@@ -78,6 +85,7 @@ void Game::InputAll()
     if(place == 1) menu.Input();
     else if(place == 2) panel.Input();
     else if(place == 3) newPassword.Input();
+    else if(place == 4) newProdukt.Input();
 }
 
 void Game::UpdateAll()
@@ -87,6 +95,7 @@ void Game::UpdateAll()
     if(place == 1) menu.Update();
     else if(place == 2) panel.Update();
     else if(place == 3) newPassword.Update();
+    else if(place == 4) newProdukt.Update();
 }
 
 void Game::DrawAll()
@@ -97,6 +106,7 @@ void Game::DrawAll()
     if(place != 2) DrawTextureEx(background_texture, (Vector2){0, 30}, 0.0f, background_scale, WHITE);
 
     if(place == 1) menu.Draw();
-    else if(place == 2) {panel.Draw();}
+    else if(place == 2) panel.Draw();
     else if(place == 3) newPassword.Draw();
+    else if(place == 4) newProdukt.Draw();
 }

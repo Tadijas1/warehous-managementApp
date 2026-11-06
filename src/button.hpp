@@ -9,7 +9,7 @@ class Button
 
     Color color;
     
-    Vector2 GetCenterPosicion();
+    Vector2 GetCenterPosicion(float width, float height);
     
     public:
     bool IsHovered;

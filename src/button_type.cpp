@@ -1,9 +1,10 @@
 #include "button_type.hpp"
 
-Button_type::Button_type(float width, float height, Color color, bool doCenter, Vector2 offset, int textSize, Color textColor, std::string textUp)
+Button_type::Button_type(float width, float height, Color color, bool doCenter, Vector2 offset, int textSize, Color textColor, std::string textUp, bool onlyNumbers)
 :Button_text(width, height, color, doCenter, offset, textSize, textColor, "")
 {
     this -> textUp = textUp;
+    this -> onlyNumbers = onlyNumbers;
     isWrong = false;
 }
 
@@ -13,7 +14,8 @@ void Button_type::Update()
 
     while(key > 0)
     {
-        if(key >= 32 && key <= 126) text += (char)key;
+        if(key >= 32 && key <= 126 && !onlyNumbers) text += (char)key;
+        else if(key >= 48 && key <= 57) text += (char)key;
         key = GetCharPressed();
     }
 

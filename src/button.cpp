@@ -6,11 +6,11 @@
 Button::Button(float width, float height, Color color, bool doCenter, Vector2 offset)
 {    
     //Get rectangle
-    if(doCenter) hitbox = Rectangle{Vector2Add(GetCenterPosicion(), offset).x - width/2, Vector2Add(GetCenterPosicion(), offset).y - height/2, width, height};
+    if(doCenter) hitbox = Rectangle{Vector2Add(GetCenterPosicion(width, height), offset).x, Vector2Add(GetCenterPosicion(width, height), offset).y, width, height};
     else hitbox = Rectangle{offset.x, offset.y, width, height};
 
     //Other things
-    IsHovered= false;
+    IsHovered = false;
     this -> color = color;
 }
 
@@ -55,10 +55,10 @@ void Button::ChangePosicion(int new_x, int new_y)
     hitbox.y = new_y;
 }
 
-Vector2 Button::GetCenterPosicion()
+Vector2 Button::GetCenterPosicion(float width, float height)
 {
-    float withCenter = (GetScreenWidth() - hitbox.width)/2;
-    float heightCenter = (GetScreenHeight() - hitbox.height)/2;
+    float withCenter = (GetScreenWidth() - width)/2;
+    float heightCenter = (GetScreenHeight() - height)/2;
 
     return {withCenter, heightCenter};
 }

@@ -14,8 +14,8 @@ New_password::New_password(Game* gameptr)
 void New_password::Input()
 {
     //hover buttons
-    hover.HoverButton(&typingPlace);
-    hover.HoverButton(&confirm);
+    gameptr -> hover.HoverButton(&typingPlace);
+    gameptr -> hover.HoverButton(&confirm);
 
     //Unmakeing button red afer wrong loginning
     if(typingPlace.isWrong && IsTyping) typingPlace.UnWrongInput();
